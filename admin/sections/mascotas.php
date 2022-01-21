@@ -10,7 +10,7 @@ $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 include('../config/db.php');
 
 switch($accion){
-    case "Agregar":
+case "Agregar":
 
       $qsql= $connection->prepare( "INSERT INTO mascotas (nombre,foto) VALUES(:nombre,:foto);" );
       $qsql->bindParam(':nombre',$txtNombre);
@@ -22,22 +22,62 @@ switch($accion){
 
         move_uploaded_file($tmpFoto,"../../img/".$fileName);
       }
-      $qsql->bindParam(':foto',$txtFoto);
+      $qsql->bindParam(':foto',$fileName);
       $qsql->execute();
+
+      header("Location:mascotas.php");
   
       break;
-    case "Modificar":
-        $qsql=$connection->prepare( "UPDATE mascotas SET nombre=:nombre, foto=:foto WHERE id=:id");
-        $qsql->bindParam(':id',$txtID);
+
+
+case "Modificar":
+        $qsql=$connection->prepare( "UPDATE mascotas SET nombre=:nombre WHERE id=:id");
         $qsql->bindParam(':nombre',$txtNombre);
-        $qsql->bindParam(':foto',$txtFoto);
+        $qsql->bindParam(':id',$txtID);
         $qsql->execute();
 
+
+if ($txtFoto!=""){
+
+    $date=new DateTime();
+    $fileName=($txtFoto!="")?$date->getTimestamp()."_".$_FILES["txtFoto"]["name"]:"foto.jpg";
+    $tmpFoto=$_FILES["txtFoto"]["tmp_name"];
+
+
+    move_uploaded_file($tmpFoto,"../../img/".$fileName);
+
+    $qsql=$connection->prepare("SELECT foto FROM mascotas WHERE id=:id");
+    $qsql->bindParam(':id',$txtID);
+    $qsql->execute();
+    $dog=$qsql->fetch(PDO::FETCH_LAZY);
+
+    if(isset($dog["foto"]) &&($dog["foto"]!="foto.jpg") ){
+
+        if(file_exists("../../img/".$dog["foto"])){
+           
+            unlink("../../img/".$dog["foto"]);
+
+        }
+    }
+
+
+    $qsql=$connection->prepare( "UPDATE mascotas SET foto=:foto WHERE id=:id");
+    $qsql->bindParam(':foto',$txtFoto);
+    $qsql->bindParam(':id',$txtID);
+    $qsql->execute();
+
+}
+header("Location:mascotas.php");
+
         break;
-    case "Cancelar":
-        echo  "funciono el Cancelar";
+
+
+ case "Cancelar":
+        header("Location:mascotas.php");
         break;
-    case "Seleccionar":
+
+
+case "Seleccionar":
         $qsql=$connection->prepare( "SELECT * FROM mascotas WHERE id=:id");
         $qsql->bindParam(':id',$txtID);
         $qsql->execute();
@@ -48,10 +88,26 @@ switch($accion){
 
         break;
     case "Eliminar":
+
+        $qsql=$connection->prepare("SELECT foto FROM mascotas WHERE id=:id");
+        $qsql->bindParam(':id',$txtID);
+        $qsql->execute();
+        $dog=$qsql->fetch(PDO::FETCH_LAZY);
+
+        if(isset($dog["foto"]) &&($dog["foto"]!="foto.jpg") ){
+
+            if(file_exists("../../img/".$dog["foto"])){
+               
+                unlink("../../img/".$dog["foto"]);
+
+            }
+        }
+
         $qsql=$connection->prepare( "DELETE FROM mascotas WHERE id=:id");
         $qsql->bindParam(':id',$txtID);
         $qsql->execute();
-       
+     
+    header("Location:mascotas.php");
         break;
 }
 
@@ -73,24 +129,33 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 
 <div class = "form-group">
 <label for="txtID">ID</label>
-<input type="text" class="form-control" value="<?php echo  $txtID;?>" name="txtID" id="txtID" placeholder="ID">
+<input type="text" required readonly class="form-control" value="<?php echo  $txtID;?>" name="txtID" id="txtID" placeholder="ID">
 </div>
 
 <div class="form-group">
 <label for="txtNombre">Nombre</label>
-<input type="text" class="form-control" value="<?php echo $txtNombre;?>" name="txtNombre" id="txtNombre" placeholder="Nombre">
+<input type="text" required class="form-control" value="<?php echo $txtNombre;?>" name="txtNombre" id="txtNombre" placeholder="Nombre">
 </div>
 
 <div class="form-group">
 <label for="txtFoto">Foto</label>
-<?php echo $txtFoto; ?>
+
+
+<?php
+if($txtFoto!=""){
+?>
+
+<img src="../../img/<?php echo $txtFoto;?>" width="50" alt="" srcset=""> 
+
+<?php }?>
+
 <input type="file" class="form-control" name="txtFoto" id="txtFoto">
 </div>
 
 <div class="btn-group" role="group" aria-label="">
-    <button type="submit" name="accion" value="Agregar" class="btn btn-primary">Agregar</button>
-    <button type="submit" name="accion" value= "Modificar"class="btn btn-warning">Modificar</button>
-    <button type="submit" name="accion" value= "Cancelar"class="btn btn-info">Cancelar</button>
+    <button type="submit" name="accion" <?php echo ($accion=="Seleccionar")?"disabled":"";?> value="Agregar" class="btn btn-primary">Agregar</button>
+    <button type="submit" name="accion" <?php echo ($accion!="Seleccionar")?"disabled":"";?> value="Modificar" class="btn btn-warning">Modificar</button>
+    <button type="submit" name="accion" <?php echo ($accion!="Seleccionar")?"disabled":"";?>value="Cancelar" class="btn btn-info">Cancelar</button>
 </div>
 
 
@@ -124,7 +189,11 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <td><?php echo $dog['id'];?></td>
                 <td><?php echo $dog['nombre'];?></td>
-                <td><?php echo $dog['foto'];?></td>
+                <td>
+
+                <img src="../../img/<?php echo $dog['foto'];?>" width="50" alt="" srcset="">    
+
+                </td>
                 <td>
 
                 <form method="post">
