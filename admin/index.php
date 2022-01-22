@@ -21,7 +21,7 @@ if($_POST){
         window.location.href="index.php";
         </script>';
 
-        return false;
+        return true;
         header("Location:index.php");
     }
 
