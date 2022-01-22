@@ -83,6 +83,7 @@ case "Seleccionar":
         $qsql->execute();
         $dog=$qsql->fetch(PDO::FETCH_LAZY);
         
+    
         $txtNombre=$dog['nombre'];
         $txtFoto=$dog['foto'];
 
@@ -153,9 +154,9 @@ if($txtFoto!=""){
 </div>
 
 <div class="btn-group" role="group" aria-label="">
-    <button type="submit" name="accion" <?php echo ($accion=="Seleccionar")?"disabled":"";?> value="Agregar" class="btn btn-primary">Agregar</button>
-    <button type="submit" name="accion" <?php echo ($accion!="Seleccionar")?"disabled":"";?> value="Modificar" class="btn btn-warning">Modificar</button>
-    <button type="submit" name="accion" <?php echo ($accion!="Seleccionar")?"disabled":"";?>value="Cancelar" class="btn btn-info">Cancelar</button>
+    <button type="submit" name="accion"  value="Agregar" class="btn btn-primary">Agregar</button>
+    <button type="submit" name="accion"  value="Modificar" class="btn btn-warning">Modificar</button>
+    <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
 </div>
 
 
