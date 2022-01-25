@@ -6,6 +6,9 @@ session_start();
 
         if($_SESSION['usuario']=="ok"){
         $nombreUsuario=$_SESSION["nombreUsuario"];
+        $idUsers=$_SESSION["id"];
+
+      
         }
     }
 
