@@ -4,6 +4,8 @@
 
 $txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
 $txtNombre=(isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
+$txtContact=(isset($_POST['txtContact']))?$_POST['txtContact']:"";
+$txtPlace=(isset($_POST['txtPlace']))?$_POST['txtPlace']:"";
 $txtFoto=(isset($_FILES['txtFoto']['name']))?$_FILES['txtFoto'] ['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
@@ -12,15 +14,18 @@ include('../config/db.php');
 switch($accion){
 case "Agregar":
 
-      $qsql= $connection->prepare( "INSERT INTO mascotas (nombre,foto) VALUES(:nombre,:foto);" );
+      $qsql= $connection->prepare( "INSERT INTO mascotas (nombre,foto,contacto,lugar,id_usuario) VALUES(:nombre,:foto,:contacto,:lugar,:id);" );
       $qsql->bindParam(':nombre',$txtNombre);
+      $qsql->bindParam(':contacto',$txtContact);
+      $qsql->bindParam(':lugar',$txtPlace);
+      $qsql->bindParam(':id',$idUsers);
 
       $date=new DateTime();
       $fileName=($txtFoto!="")?$date->getTimestamp()."_".$_FILES["txtFoto"]["name"]:"foto.jpg";
       $tmpFoto=$_FILES["txtFoto"]["tmp_name"];
       if($tmpFoto!=""){
 
-        move_uploaded_file($tmpFoto,"../../img/".$fileName);
+        move_uploaded_file($tmpFoto,"../../mg/".$fileName);
       }
       $qsql->bindParam(':foto',$fileName);
       $qsql->execute();
@@ -33,6 +38,16 @@ case "Agregar":
 case "Modificar":
         $qsql=$connection->prepare( "UPDATE mascotas SET nombre=:nombre WHERE id=:id");
         $qsql->bindParam(':nombre',$txtNombre);
+        $qsql->bindParam(':id',$txtID);
+        $qsql->execute();
+
+        $qsql=$connection->prepare( "UPDATE mascotas SET contacto=:contacto WHERE id=:id");
+        $qsql->bindParam(':contacto',$txtContact);
+        $qsql->bindParam(':id',$txtID);
+        $qsql->execute();
+
+        $qsql=$connection->prepare( "UPDATE mascotas SET lugar=:lugar WHERE id=:id");
+        $qsql->bindParam(':lugar',$txtPlace);
         $qsql->bindParam(':id',$txtID);
         $qsql->execute();
 
@@ -85,6 +100,8 @@ case "Seleccionar":
         
     
         $txtNombre=$dog['nombre'];
+        $txtContact=$dog['contacto'];
+        $txtPlace=$dog['lugar'];
         $txtFoto=$dog['foto'];
 
         break;
@@ -112,7 +129,8 @@ case "Seleccionar":
         break;
 }
 
-$qsql=$connection->prepare( "SELECT * FROM mascotas");
+$qsql=$connection->prepare( "SELECT * FROM mascotas WHERE id_usuario=:id");
+$qsql->bindParam(':id',$idUsers);
 $qsql->execute();
 $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -137,6 +155,17 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 <label for="txtNombre">Nombre</label>
 <input type="text" required class="form-control" value="<?php echo $txtNombre;?>" name="txtNombre" id="txtNombre" placeholder="Nombre">
 </div>
+
+<div class="form-group">
+<label for="txtPlace">¿Donde lo viste por última vez?</label>
+<input type="text" class="form-control" value="<?php echo $txtPlace;?>" name="txtPlace" id="txtPlace" placeholder="Lo vi por última vez...">
+</div>
+
+<div class="form-group">
+<label for="txtContact">Contacto</label>
+<input type="text" class="form-control" value="<?php echo $txtContact;?>" name="txtContact" id="txtContact" placeholder="Contacto">
+</div>
+
 
 <div class="form-group">
 <label for="txtFoto">Foto</label>
@@ -179,6 +208,8 @@ if($txtFoto!=""){
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Lugar</th>
+                <th>Contacto</th>
                 <th>Foto</th>
                 <th>Acciones</th>
             </tr>
@@ -190,6 +221,8 @@ if($txtFoto!=""){
             <tr>
                 <td><?php echo $dog['id'];?></td>
                 <td><?php echo $dog['nombre'];?></td>
+                <td><?php echo $dog['lugar'];?></td>
+                <td><?php echo $dog['contacto'];?></td>
                 <td>
 
                 <img src="../../img/<?php echo $dog['foto'];?>" width="50" alt="" srcset="">    

@@ -28,11 +28,14 @@ if($_POST){
     $userNames=$userN['username'];
     
     $passwords=$userN['password'];
+
+    $userID= $userN['id'];
     
         if (($_POST['usuario'] = $userNames) && ($_POST['pass'] = $passwords )){
 
             $_SESSION['usuario']="ok";
-            $_SESSION['nombreUsuario'] = 'Nahu';
+            $_SESSION['nombreUsuario'] = $userNames;
+            $_SESSION['id']=$userID;
             header('Location:inicio.php');
         }else{
             $mensaje="El usuario y/o contraseña son incorrectos";
