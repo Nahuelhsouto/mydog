@@ -25,7 +25,7 @@ case "Agregar":
       $tmpFoto=$_FILES["txtFoto"]["tmp_name"];
       if($tmpFoto!=""){
 
-        move_uploaded_file($tmpFoto,"../../mg/".$fileName);
+        move_uploaded_file($tmpFoto,"../../img/".$fileName);
       }
       $qsql->bindParam(':foto',$fileName);
       $qsql->execute();
