@@ -31,6 +31,10 @@
           <li class="nav-item">
             <a class="nav-link" href="nosotros.php">Nosotros</a>
           </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.php">Sign-up</a>
+          </li>
         </ul>
       </div>
     </nav>
