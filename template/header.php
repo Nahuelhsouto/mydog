@@ -11,33 +11,49 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Lost&Found Pets</a>
-      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" onclick="myFunction()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<header class="header fixed-top">	    
+        <div class="branding">
+            <div class="container-fluid position-relative">
+				<nav class="navbar navbar-expand-lg">
+                    <div class="site-logo"><a class="navbar-brand" href="index.php"><img class="logo-icon me-2" src="template/img/paw.png" alt="logo"><span class="logo-text">Lost&<span class="text-alt">Paws</span></span></a></div>    
 
-      <div class="navbar-collapse justify-content-center offcanvas-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="admin/index.php">Mis busquedas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mascotas.php">Perdidos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="nosotros.php">Nosotros</a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="signup.php">Sign-up</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+                 
+					<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+	                    <span> </span>
+	                    <span> </span>
+	                    <span> </span>
+	                </button>
+					
+					<div class="collapse navbar-collapse py-3 py-lg-0" id="navigation">
+						
+						<ul class="navbar-nav ms-lg-auto">
+							<li class="nav-item me-lg-4">
+							    <a class="nav-link" href="index.php">Inicio</a>
+							</li>
+							<li class="nav-item me-lg-4">
+							   <a class="nav-link" href="mascotas.php">Mascotas</a>
+							</li>
+							<li class="nav-item dropdown me-lg-4">
+						        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						          Docs
+						        </a>
+						    </li>
+							<li class="nav-item me-lg-4">
+							    <a class="nav-link" href="nosotros.php">Nosotros</a>
+							</li>
+							<li class="nav-item me-lg-4">
+							   <a class="nav-link" href="admin/index.php">Login</a>
+							</li>
+							<li class="nav-item me-lg-0 mt-3 mt-lg-0">
+							   <a class="btn btn-primary text-white" href="signup.php">Sign up</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header>   
 <div class="container">
     <br/>
     <div class="row">
