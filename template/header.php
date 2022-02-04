@@ -30,13 +30,19 @@
 							<li class="nav-item me-lg-4">
 							    <a class="nav-link" href="index.php">Inicio</a>
 							</li>
-							<li class="nav-item me-lg-4">
-							   <a class="nav-link" href="mascotas.php">Mascotas</a>
-							</li>
 							<li class="nav-item dropdown me-lg-4">
 						        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						          Docs
+						          Mascotas
 						        </a>
+                    <ul class="dropdown-menu rounded shadow menu-animate slideIn" aria-labelledby="navbarDropdown">
+						            <li><a class="dropdown-item has-icon" href="mascotas.php"><span class="theme-icon-holder me-2"><i class="fas fa-home fa-fw"></i></span>Mascotas</a></li>
+						          
+						            <li><div class="dropdown-divider m-0"></div></li>
+						            
+						            <li><a class="dropdown-item has-icon" href="docs-page.html#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs fa-fw"></i></span>Gatos</a></li>
+						            <li><a class="dropdown-item has-icon" href="docs-page.html#section-2"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down fa-fw"></i></span>Perros</a></li>
+						            <li><a class="dropdown-item has-icon" href="docs-page.html#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box fa-fw"></i></span>Tortugas</a></li>
+						        </ul>
 						    </li>
 							<li class="nav-item me-lg-4">
 							    <a class="nav-link" href="nosotros.php">Nosotros</a>
@@ -64,5 +70,3 @@
 
 <script src="test/popper.min.js"></script>
 <script src="test/bootstrap.min.js"></script>  
-
-<script src="offcanvas.js"></script>
