@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script defer="" src="test/all.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
@@ -30,13 +31,18 @@
 							<li class="nav-item me-lg-4">
 							    <a class="nav-link" href="index.php">Inicio</a>
 							</li>
-							<li class="nav-item me-lg-4">
-							   <a class="nav-link" href="mascotas.php">Mascotas</a>
-							</li>
 							<li class="nav-item dropdown me-lg-4">
 						        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						          Docs
+						          Mascotas
 						        </a>
+                    <ul class="dropdown-menu rounded shadow menu-animate slideIn" aria-labelledby="navbarDropdown">
+						            <li><a class="dropdown-item has-icon" href="mascotas.php"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-paw fa-fw"></i></span>Mascotas</a></li>
+						          
+						            <li><div class="dropdown-divider m-0"></div></li>
+						            
+						            <li><a class="dropdown-item has-icon" href="#"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-cat fa-fw"></i></span>Gatos</a></li>
+						            <li><a class="dropdown-item has-icon" href="#"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-dog fa-fw"></i></span>Perros</a></li>
+						        </ul>
 						    </li>
 							<li class="nav-item me-lg-4">
 							    <a class="nav-link" href="nosotros.php">Nosotros</a>
@@ -45,7 +51,7 @@
 							   <a class="nav-link" href="admin/index.php">Login</a>
 							</li>
 							<li class="nav-item me-lg-0 mt-3 mt-lg-0">
-							   <a class="btn btn-primary text-white" href="signup.php">Sign up</a>
+							   <a class="btn btn-danger text-white" href="signup.php">Sign up</a>
 							</li>
 						</ul>
 					</div>
@@ -64,5 +70,3 @@
 
 <script src="test/popper.min.js"></script>
 <script src="test/bootstrap.min.js"></script>  
-
-<script src="offcanvas.js"></script>
