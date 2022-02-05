@@ -147,9 +147,6 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
     <form method="POST" enctype="multipart/form-data">
 
 <div class = "form-group">
-<label for="txtID">ID</label>
-<input type="text" required readonly class="form-control" value="<?php echo  $txtID;?>" name="txtID" id="txtID" placeholder="ID">
-</div>
 
 <div class="form-group">
 <label for="txtNombre">Nombre</label>
@@ -206,7 +203,7 @@ if($txtFoto!=""){
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+               
                 <th>Nombre</th>
                 <th>Lugar</th>
                 <th>Contacto</th>
@@ -219,7 +216,6 @@ if($txtFoto!=""){
            foreach($doglist as $dog){
            ?>
             <tr>
-                <td><?php echo $dog['id'];?></td>
                 <td><?php echo $dog['nombre'];?></td>
                 <td><?php echo $dog['lugar'];?></td>
                 <td><?php echo $dog['contacto'];?></td>
