@@ -48,6 +48,9 @@
 							    <a class="nav-link" href="nosotros.php">Nosotros</a>
 							</li>
 							<li class="nav-item me-lg-4">
+							    <a class="nav-link" href="Done.php">Donativos</a>
+							</li>
+							<li class="nav-item me-lg-4">
 							   <a class="nav-link" href="admin/index.php">Login</a>
 							</li>
 							<li class="nav-item me-lg-0 mt-3 mt-lg-0">
