@@ -1,4 +1,4 @@
-<?php include('../template/header.php')?>
+<?php include('template/header.php')?>
 
 <?php
 
@@ -9,7 +9,7 @@ $txtPlace=(isset($_POST['txtPlace']))?$_POST['txtPlace']:"";
 $txtFoto=(isset($_FILES['txtFoto']['name']))?$_FILES['txtFoto'] ['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
-include('../config/db.php');
+include('config/db.php');
 
 switch($accion){
 case "Agregar":
@@ -25,12 +25,12 @@ case "Agregar":
       $tmpFoto=$_FILES["txtFoto"]["tmp_name"];
       if($tmpFoto!=""){
 
-        move_uploaded_file($tmpFoto,"../../img/".$fileName);
+        move_uploaded_file($tmpFoto,"../img/".$fileName);
       }
       $qsql->bindParam(':foto',$fileName);
       $qsql->execute();
 
-      header("Location:mascotas.php");
+      echo "<script> window,location.href='mascotas.php';</script>";
   
       break;
 
@@ -59,7 +59,7 @@ if ($txtFoto!=""){
     $tmpFoto=$_FILES["txtFoto"]["tmp_name"];
 
 
-    move_uploaded_file($tmpFoto,"../../img/".$fileName);
+    move_uploaded_file($tmpFoto,"../img/".$fileName);
 
     $qsql=$connection->prepare("SELECT foto FROM mascotas WHERE id=:id");
     $qsql->bindParam(':id',$txtID);
@@ -68,9 +68,9 @@ if ($txtFoto!=""){
 
     if(isset($dog["foto"]) &&($dog["foto"]!="foto.jpg") ){
 
-        if(file_exists("../../img/".$dog["foto"])){
+        if(file_exists("../img/".$dog["foto"])){
            
-            unlink("../../img/".$dog["foto"]);
+            unlink("../img/".$dog["foto"]);
 
         }
     }
@@ -82,13 +82,13 @@ if ($txtFoto!=""){
     $qsql->execute();
 
 }
-header("Location:mascotas.php");
+echo "<script> window,location.href='mascotas.php';</script>";
 
         break;
 
 
  case "Cancelar":
-        header("Location:mascotas.php");
+    echo "<script> window,location.href='mascotas.php';</script>";
         break;
 
 
@@ -114,9 +114,9 @@ case "Seleccionar":
 
         if(isset($dog["foto"]) &&($dog["foto"]!="foto.jpg") ){
 
-            if(file_exists("../../img/".$dog["foto"])){
+            if(file_exists(".../img/".$dog["foto"])){
                
-                unlink("../../img/".$dog["foto"]);
+                unlink("../img/".$dog["foto"]);
 
             }
         }
@@ -125,7 +125,7 @@ case "Seleccionar":
         $qsql->bindParam(':id',$txtID);
         $qsql->execute();
      
-    header("Location:mascotas.php");
+        echo "<script> window,location.href='mascotas.php';</script>";
         break;
 }
 
@@ -172,7 +172,7 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 if($txtFoto!=""){
 ?>
 
-<img src="../../img/<?php echo $txtFoto;?>" width="50" alt="" srcset=""> 
+<img src="../img/<?php echo $txtFoto;?>" width="50" alt="" srcset=""> 
 
 <?php }?>
 
@@ -221,7 +221,7 @@ if($txtFoto!=""){
                 <td><?php echo $dog['contacto'];?></td>
                 <td>
 
-                <img src="../../img/<?php echo $dog['foto'];?>" width="50" alt="" srcset="">    
+                <img src="../img/<?php echo $dog['foto'];?>" width="50" alt="" srcset="">    
 
                 </td>
                 <td>
@@ -242,4 +242,4 @@ if($txtFoto!=""){
 </div>
 
 
-<?php include('../template/footer.php')?>
+<?php include('template/footer.php')?>
