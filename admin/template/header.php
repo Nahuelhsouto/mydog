@@ -58,12 +58,9 @@ session_start();
 						          Publicar
 						        </a>
                     <ul class="dropdown-menu rounded shadow menu-animate slideIn" aria-labelledby="navbarDropdown">
-						            <li><a class="dropdown-item has-icon" href="<?php echo $url;?>/admin/sections/mascotas.php"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-paw fa-fw"></i></span>Mascotas</a></li>
-						          
-						            <li><div class="dropdown-divider m-0"></div></li>
 						            
-						            <li><a class="dropdown-item has-icon" href="#"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-cat fa-fw"></i></span>Gatos</a></li>
-						            <li><a class="dropdown-item has-icon" href="#"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-dog fa-fw"></i></span>Perros</a></li>
+						            <li><a class="dropdown-item has-icon" href="#"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fa-light fa-paw fa-fw"></i></span>Perdido</a></li>
+						            <li><a class="dropdown-item has-icon" href="#"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-paw fa-fw"></i></span>Encontrado</a></li>
 						        </ul>
 						    </li>
 							<li class="nav-item dropdown me-lg-4">
