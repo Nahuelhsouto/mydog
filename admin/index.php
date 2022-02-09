@@ -9,9 +9,8 @@ if($_POST){
    
     if(($_POST['usuario']!="") && ($_POST['pass']!="")){
     
-    $qsql=$connection->prepare( "SELECT * FROM usuarios WHERE username =:userName AND password =:password");
+    $qsql=$connection->prepare( "SELECT * FROM usuarios WHERE username =:userName");
     $qsql->bindParam(':userName',$userName);
-    $qsql->bindParam(':password',$password);
     $qsql->execute();
     $userN=$qsql->fetch(PDO::FETCH_LAZY);
     
@@ -31,7 +30,7 @@ if($_POST){
 
     $userID= $userN['id'];
     
-        if (($_POST['usuario'] = $userNames) && ($_POST['pass'] = $passwords )){
+        if (password_verify($password,$passwords) ){
 
             $_SESSION['usuario']="ok";
             $_SESSION['nombreUsuario'] = $userNames;

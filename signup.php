@@ -9,9 +9,11 @@ include('admin/config/db.php');
 
 if($_POST){
 
+    $pass = password_hash($passID,PASSWORD_DEFAULT);
+
     $qsql= $connection->prepare( "INSERT INTO usuarios (username,password,mail) VALUES(:username,:password,:mail);" );
     $qsql->bindParam(':username',$userID);
-    $qsql->bindParam(':password',$passID);
+    $qsql->bindParam(':password',$pass);
     $qsql->bindParam(':mail',$mailID);
     $qsql->execute();
 
@@ -20,7 +22,7 @@ if($_POST){
         </script>';
 
 
-    header("Location:admin/index.php");
+        echo "<script> window,location.href='admin/index.php';</script>";
 
 
 }
