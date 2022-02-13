@@ -8,17 +8,19 @@ $txtContact=(isset($_POST['txtContact']))?$_POST['txtContact']:"";
 $txtPlace=(isset($_POST['txtPlace']))?$_POST['txtPlace']:"";
 $txtFoto=(isset($_FILES['txtFoto']['name']))?$_FILES['txtFoto'] ['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
+$typeAni=(isset($_POST['typeAni']))?$_POST['typeAni']:"";
 
 include('config/db.php');
 
 switch($accion){
 case "Agregar":
 
-      $qsql= $connection->prepare( "INSERT INTO mascotas (nombre,foto,contacto,lugar,id_usuario) VALUES(:nombre,:foto,:contacto,:lugar,:id);" );
+      $qsql= $connection->prepare( "INSERT INTO mascotas (tipo_masc,nombre,foto,contacto,lugar,id_usuario) VALUES(:tipo_masc,:nombre,:foto,:contacto,:lugar,:id);" );
       $qsql->bindParam(':nombre',$txtNombre);
       $qsql->bindParam(':contacto',$txtContact);
       $qsql->bindParam(':lugar',$txtPlace);
       $qsql->bindParam(':id',$idUsers);
+      $qsql->bindParam(':tipo_masc',$typeAni);
 
       $date=new DateTime();
       $fileName=($txtFoto!="")?$date->getTimestamp()."_".$_FILES["txtFoto"]["name"]:"foto.jpg";
@@ -152,6 +154,16 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 <label for="txtNombre">Nombre</label>
 <input type="text" required class="form-control" value="<?php echo $txtNombre;?>" name="txtNombre" id="txtNombre" placeholder="Nombre">
 </div>
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+    <label class="input-group-text" for="typeAni">Tipo</label>
+  </div>
+<select class="custom-select" id="typeAni" name="typeAni">
+    <option value="1">Gato</option>
+    <option value="2">Perro</option>
+  </select>
+  <div class="input-group mb-3">
+      
 
 <div class="form-group">
 <label for="txtPlace">¿Donde lo viste por última vez?</label>
