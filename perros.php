@@ -1,7 +1,7 @@
 <?php include("template/header.php") ?>
 <?php 
 include("admin/config/db.php");
-$qsql=$connection->prepare("SELECT * FROM mascotas");
+$qsql=$connection->prepare("SELECT * FROM mascotas WHERE tipo_masc = 2");
 $qsql->execute();
 $dogList=$qsql->fetchALL(PDO::FETCH_ASSOC);
 

@@ -8,6 +8,7 @@
     <script defer="" src="test/all.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/images.css">
     <title>Document</title>
 </head>
 <body>
@@ -40,8 +41,8 @@
 						          
 						            <li><div class="dropdown-divider m-0"></div></li>
 						            
-						            <li><a class="dropdown-item has-icon" href="#"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-cat fa-fw"></i></span>Gatos</a></li>
-						            <li><a class="dropdown-item has-icon" href="#"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-dog fa-fw"></i></span>Perros</a></li>
+						            <li><a class="dropdown-item has-icon" href="gatos.php"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-cat fa-fw"></i></span>Gatos</a></li>
+						            <li><a class="dropdown-item has-icon" href="perros.php"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-dog fa-fw"></i></span>Perros</a></li>
 						        </ul>
 						    </li>
 							<li class="nav-item me-lg-4">
