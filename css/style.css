@@ -10213,10 +10213,10 @@ a.text-link:hover {
   color: #ec575b;
 }
 .pagination .page-link {
-  color: #e07220;
+  color: #f5f6fe;
 }
 .pagination .page-item.active .page-link {
-  background-color: #e07220;
+  background-color: #f5f6fe;
 }
 .theme-icon-holder {
   display: inline-block;
@@ -10496,7 +10496,7 @@ a.text-link:hover {
 }
 .navbar .dropdown-item:hover .theme-icon-holder,
 .navbar .dropdown-item:active .theme-icon-holder {
-  background: #e07220;
+  background: #f5f6fe;
   color: #fff;
 }
 .page-header.theme-bg-dark .page-heading {
@@ -11742,4 +11742,8 @@ a.text-link:hover {
 }
 .auth-footer .legal a {
   color: #828d9f;
+}
+.img-dog {
+  width: 200px;
+  height: 200px;
 }

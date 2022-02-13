@@ -37,7 +37,7 @@ if($_POST){
             $_SESSION['id']=$userID;
             header('Location:inicio.php');
         }else{
-            $mensaje="El usuario y/o contraseña son incorrectos";
+            $mensaje="Contraseña equivocada.";
         }
 
     }else{
