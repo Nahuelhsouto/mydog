@@ -5,22 +5,29 @@
 $txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
 $txtNombre=(isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
 $txtContact=(isset($_POST['txtContact']))?$_POST['txtContact']:"";
+$txtDescrip=(isset($_POST['txtDescrip']))?$_POST['txtDescrip']:"";
 $txtPlace=(isset($_POST['txtPlace']))?$_POST['txtPlace']:"";
 $txtFoto=(isset($_FILES['txtFoto']['name']))?$_FILES['txtFoto'] ['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 $typeAni=(isset($_POST['typeAni']))?$_POST['typeAni']:"";
+$dateLost=(isset($_POST['dateLost']))?$_POST['dateLost']:"";
+
 
 include('config/db.php');
 
 switch($accion){
 case "Agregar":
 
-      $qsql= $connection->prepare( "INSERT INTO mascotas (tipo_masc,nombre,foto,contacto,lugar,id_usuario) VALUES(:tipo_masc,:nombre,:foto,:contacto,:lugar,:id);" );
+      $qsql= $connection->prepare( "INSERT INTO mascotas (tipo_masc,nombre,foto,contacto,fecha_reg,lugar,descrip,estado,id_usuario) VALUES(:tipo_masc,:nombre,:foto,:contacto,:fecha_reg,:lugar,:descrip,1,:id);" );
       $qsql->bindParam(':nombre',$txtNombre);
       $qsql->bindParam(':contacto',$txtContact);
       $qsql->bindParam(':lugar',$txtPlace);
+      $qsql->bindParam(':descrip',$txtDescrip);
       $qsql->bindParam(':id',$idUsers);
       $qsql->bindParam(':tipo_masc',$typeAni);
+      $qsql->bindParam(':tipo_masc',$typeAni);
+      $qsql->bindParam(':fecha_reg',$dateLost);
+    
 
       $date=new DateTime();
       $fileName=($txtFoto!="")?$date->getTimestamp()."_".$_FILES["txtFoto"]["name"]:"foto.jpg";
@@ -32,7 +39,7 @@ case "Agregar":
       $qsql->bindParam(':foto',$fileName);
       $qsql->execute();
 
-      echo "<script> window,location.href='mascotas.php';</script>";
+      echo "<script> window,location.href='perdidos.php';</script>";
   
       break;
 
@@ -84,13 +91,13 @@ if ($txtFoto!=""){
     $qsql->execute();
 
 }
-echo "<script> window,location.href='mascotas.php';</script>";
+echo "<script> window,location.href='perdidos.php';</script>";
 
         break;
 
 
  case "Cancelar":
-    echo "<script> window,location.href='mascotas.php';</script>";
+    echo "<script> window,location.href='perdidos.php';</script>";
         break;
 
 
@@ -127,7 +134,7 @@ case "Seleccionar":
         $qsql->bindParam(':id',$txtID);
         $qsql->execute();
      
-        echo "<script> window,location.href='mascotas.php';</script>";
+        echo "<script> window,location.href='perdidos.php';</script>";
         break;
 }
 
@@ -137,7 +144,7 @@ $qsql->execute();
 $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
+<div class="page">
 <div class="col-md-5">
 <br/><br/><br/>
 <div class="card">
@@ -166,6 +173,10 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
       
 
 <div class="form-group">
+<label for="txtPlace">¿Cuando se perdio?</label>
+<input type="date" class="form-control"  name="dateLost" id="dateLost">
+</div>
+<div class="form-group">
 <label for="txtPlace">¿Donde lo viste por última vez?</label>
 <input type="text" class="form-control" value="<?php echo $txtPlace;?>" name="txtPlace" id="txtPlace" placeholder="Lo vi por última vez...">
 </div>
@@ -175,9 +186,15 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 <input type="text" class="form-control" value="<?php echo $txtContact;?>" name="txtContact" id="txtContact" placeholder="Contacto">
 </div>
 
+<div class="form-group">
+<label for="txtDescrip">Descripción</label>
+<input type="text" class="form-control" value="<?php echo $txtDescrip;?>" name="txtDescrip" id="txtDescrip" placeholder="Mencionar caracteristicas distintiva, edad, si responde a algún nombre en particular, etc...">
+</div>
+
 
 <div class="form-group">
 <label for="txtFoto">Foto</label>
+
 
 
 <?php
@@ -193,25 +210,47 @@ if($txtFoto!=""){
 
 <div class="btn-group" role="group" aria-label="">
     <button type="submit" name="accion"  value="Agregar" class="btn btn-primary">Agregar</button>
-    <button type="submit" name="accion"  value="Modificar" class="btn btn-warning">Modificar</button>
+         <!-- <button type="submit" name="accion"  value="Modificar" class="btn btn-warning">Modificar</button> -->
     <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
 </div>
-
-
-
-
 </div>
-
-
-    </div>
-
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
 
 
-<div class="col-md-7">
-<br/><br/><br/>
+<div class="sec2">
+
+<?php
+           foreach($doglist as $dog){
+               ?>
+              
+<div class="cards-paws-design">
+    <img class="img-cat" src="../img/<?php echo $dog['foto'];?>" alt="">
+    <span><?php echo $dog['nombre'];?></span>
+    <span >Se perdio en <?php echo $dog['lugar'];?> </span>
+    <span >Comunicate al <?php echo $dog['contacto'];?> </span>
+    
+    <form method="post">
+    <input type="hidden" name="txtID" id="txtID" value="<?php echo $dog['id'];?>">
+    <input type="submit" name="accion" value="Eliminar" class="btn btn-danger">
+
+    </form>
+</div>
+
+
+
+
+<?php }?>
+
+</div>
+</div>
+<!-- <div class="col-md-7">
+
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -251,7 +290,7 @@ if($txtFoto!=""){
             </tr>
         </tbody>
     </table>
-</div>
+</div> -->
 
 
 <?php include('template/footer.php')?>
