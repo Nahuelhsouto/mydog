@@ -11,18 +11,41 @@ if($_POST){
 
     $pass = password_hash($passID,PASSWORD_DEFAULT);
 
-    $qsql= $connection->prepare( "INSERT INTO usuarios (username,password,mail) VALUES(:username,:password,:mail);" );
+    $qsql= $connection->prepare( "INSERT INTO usuarios (username,password,mail,hash_u,activo) VALUES(:username,:password,:mail,:hash_u,0);" );
     $qsql->bindParam(':username',$userID);
     $qsql->bindParam(':password',$pass);
     $qsql->bindParam(':mail',$mailID);
+    $hash = md5( rand(0,1000) );
+    $qsql->bindParam(':hash_u',$hash);
     $qsql->execute();
 
-    echo'<script type="text/javascript">
-        alert("Registrado con exito!");
-        </script>';
+
+    $to      = $mailID; // Enviar Email al usuario
+$subject = 'Signup | Verification'; // Darle un asunto al correo electrónico
+$message = '
+ 
+Gracias por registrarte!
+Tu cuenta ha sido creada, activala utilizando el enlace de la parte inferior.
+ 
+------------------------
+Username: '.$userID.'
+Password: '.$passID.'
+------------------------
+ 
+Por favor haz clic en este enlace para activar tu cuenta:
+http://localhost/proyecto1/activar.php?email='.$mailID.'&hash='.$hash.'
+'; // Aqui se incluye la URL para ir al mensaje
+                     
+$headers = 'From:noreply@lostandpaws.com' . "\r\n"; // Colocar el encabezado
+mail($to, $subject, $message, $headers); // Enviar el correo electrónico
+    
+  
+    // echo'<script type="text/javascript">
+    //     alert("Registrado con exito!");
+    //     </script>';
 
 
-        echo "<script> window,location.href='admin/index.php';</script>";
+       
 
 
 }
