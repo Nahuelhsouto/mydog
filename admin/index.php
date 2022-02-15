@@ -9,14 +9,14 @@ if($_POST){
    
     if(($_POST['usuario']!="") && ($_POST['pass']!="")){
     
-    $qsql=$connection->prepare( "SELECT * FROM usuarios WHERE username =:userName");
+    $qsql=$connection->prepare( "SELECT * FROM usuarios WHERE username =:userName AND activo = 1");
     $qsql->bindParam(':userName',$userName);
     $qsql->execute();
     $userN=$qsql->fetch(PDO::FETCH_LAZY);
     
     if (!$userN) {
         echo'<script type="text/javascript">
-        alert("El usuario y/o contraseña son incorrectos");
+        alert("El usuario y/o contraseña son incorrectos o no esta verificada.");
         window.location.href="index.php";
         </script>';
 
@@ -28,9 +28,11 @@ if($_POST){
     
     $passwords=$userN['password'];
 
+    $status=$userN['activo'];
+
     $userID= $userN['id'];
     
-        if (password_verify($password,$passwords) ){
+        if (password_verify($password,$passwords)){
 
             $_SESSION['usuario']="ok";
             $_SESSION['nombreUsuario'] = $userNames;
@@ -42,7 +44,7 @@ if($_POST){
 
     }else{
 
-        $mensaje="El usuario y/o contraseña son incorrectos";
+        $mensaje="El usuario y/o contraseña son incorrectos o aún no ha registrado";
     }
    
    
