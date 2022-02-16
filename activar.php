@@ -20,13 +20,13 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
         // Hay una coincidencia, activar la cuenta
         $sqql= $connection->prepare( "UPDATE usuarios SET activo='1' WHERE mail='".$email."' AND hash_u='".$hash."' AND activo='0'" );
         $sqql->execute();
-        echo '<div class="statusmsg">Tu cuenta ha sido activada, ya puedes iniciar sesión.</div>';
+        echo '<div >Tu cuenta ha sido activada, ya puedes iniciar sesión.</div>';
     }else{
         // No hay coincidencias
-        echo '<div class="statusmsg">La URL es inválida  o ya has activado tu cuenta.</div>';
+        echo '<div >La URL es inválida  o ya has activado tu cuenta.</div>';
     }
 }else{
     // Intento nó válido (ya sea porque se ingresa sin tener el hash o porque la cuenta ya ha sido registrada)
-    echo '<div class="statusmsg">Intento inválido, por favor revisa el mensaje que enviamos correo electrónico</div>';
+    echo '<div >Intento inválido, por favor revisa el mensaje que enviamos correo electrónico</div>';
 }
 ?>
