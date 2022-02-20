@@ -39,7 +39,7 @@ case "Agregar":
       $qsql->bindParam(':foto',$fileName);
       $qsql->execute();
 
-      echo "<script> window,location.href='perdidos.php';</script>";
+    
   
       break;
 
@@ -134,7 +134,7 @@ case "Seleccionar":
         $qsql->bindParam(':id',$txtID);
         $qsql->execute();
      
-        echo "<script> window,location.href='perdidos.php';</script>";
+        
         break;
 }
 
@@ -225,72 +225,9 @@ if($txtFoto!=""){
 
 <div class="sec2">
 
-<?php
-           foreach($doglist as $dog){
-               ?>
-              
-<div class="cards-paws-design">
-    <img class="img-cat" src="../img/<?php echo $dog['foto'];?>" alt="">
-    <span><?php echo $dog['nombre'];?></span>
-    <span >Se perdio en <?php echo $dog['lugar'];?> </span>
-    <span >Comunicate al <?php echo $dog['contacto'];?> </span>
-    
-    <form method="post">
-    <input type="hidden" name="txtID" id="txtID" value="<?php echo $dog['id'];?>">
-    <input type="submit" name="accion" value="Eliminar" class="btn btn-danger">
 
-    </form>
+
 </div>
 
-
-
-
-<?php }?>
-
-</div>
-</div>
-<!-- <div class="col-md-7">
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-               
-                <th>Nombre</th>
-                <th>Lugar</th>
-                <th>Contacto</th>
-                <th>Foto</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-           <?php
-           foreach($doglist as $dog){
-           ?>
-            <tr>
-                <td><?php echo $dog['nombre'];?></td>
-                <td><?php echo $dog['lugar'];?></td>
-                <td><?php echo $dog['contacto'];?></td>
-                <td>
-
-                <img src="../img/<?php echo $dog['foto'];?>" width="50" alt="" srcset="">    
-
-                </td>
-                <td>
-
-                <form method="post">
-
-                    <input type="hidden" name="txtID" id="txtID" value="<?php echo $dog['id'];?>">
-                    <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary">
-                    <input type="submit" name="accion" value="Eliminar" class="btn btn-danger">
-
-                </form>
-
-                </td>
-                <?php }?>
-            </tr>
-        </tbody>
-    </table>
-</div> -->
-
-
+<script src="../javascript/perdidos.js"> </script>
 <?php include('template/footer.php')?>

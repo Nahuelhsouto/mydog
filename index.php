@@ -1,12 +1,9 @@
 <?php include("template/header.php")?>
-<?php include("admin/config/db.php");
-
-$qsql=$connection->prepare("SELECT * FROM mascotas");
-$qsql->execute();
-$dogList=$qsql->fetchALL(PDO::FETCH_ASSOC);
-
-?>
 
 
+<div class="img-carti">
 
-    <?php include("template/footer.php")?>
+</div>
+<script src="javascript/index.js"></script>
+
+<?php include("template/footer.php")?>
