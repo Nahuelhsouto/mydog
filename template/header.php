@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script defer="" src="test/all.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -37,19 +38,19 @@
 						          Mascotas
 						        </a>
                     <ul class="dropdown-menu rounded shadow menu-animate slideIn" aria-labelledby="navbarDropdown">
-						            <li><a class="dropdown-item has-icon" href="mascotas.php"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-paw fa-fw"></i></span>Mascotas</a></li>
+						            <li><a class="dropdown-item has-icon" href="#" onclick=pets()><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-paw fa-fw"></i></span>Mascotas</a></li>
 						          
 						            <li><div class="dropdown-divider m-0"></div></li>
 						            
-						            <li><a class="dropdown-item has-icon" href="gatos.php"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-cat fa-fw"></i></span>Gatos</a></li>
-						            <li><a class="dropdown-item has-icon" href="perros.php"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-dog fa-fw"></i></span>Perros</a></li>
+						            <li><a class="dropdown-item has-icon" href="#" onclick=cat()><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-cat fa-fw"></i></span>Gatos</a></li>
+						            <li><a class="dropdown-item has-icon" href="#" onclick=dogs()><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-dog fa-fw"></i></span>Perros</a></li>
 						        </ul>
 						    </li>
 							<li class="nav-item me-lg-4">
-							    <a class="nav-link" href="nosotros.php">Nosotros</a>
+							    <a class="nav-link" href="#">Nosotros</a>
 							</li>
 							<li class="nav-item me-lg-4">
-							    <a class="nav-link" href="Done.php">Donativos</a>
+							    <a class="nav-link" href="#">Donativos</a>
 							</li>
 							<li class="nav-item me-lg-4">
 							   <a class="nav-link" href="admin/index.php">Login</a>
@@ -67,7 +68,6 @@
 <div class="container">
     <br/>
     <div class="row">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>    
