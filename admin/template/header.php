@@ -26,6 +26,7 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/images.css">
+    <link rel="stylesheet" href="../css/chat.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -76,7 +77,7 @@ session_start();
 									<li><div class="dropdown-divider m-0"></div></li>
 									
 									<li><a class="dropdown-item has-icon" href="#"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-wrench fa-fw"></i></span>Configuración</a></li>
-									<li><a class="dropdown-item has-icon" href="#"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-inbox fa-fw"></i></span>Inbox</a></li>
+									<li><a class="dropdown-item has-icon" href="<?php echo $url;?>/admin/inbox.php"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-inbox fa-fw"></i></span>Inbox</a></li>
 									<li><a class="dropdown-item has-icon" href="<?php echo $url;?>/admin/cerrar.php"><span  style="color:tomato;"class="theme-icon-holder me-2"><i class="fas fa-door-open fa-fw"></i></span>Cerrar Sesión</a></li>
 								</ul>
 							</li>
@@ -92,18 +93,10 @@ session_start();
             </div><!--//container-->
         </div><!--//branding-->
     </header> 
-<!-- <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="nav navbar-nav">
-        <a class="nav-item nav-link active" href="#">Admin <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="<?php echo $url;?>/admin/inicio.php">Inicio</a>
-        <a class="nav-item nav-link" href="<?php echo $url;?>/admin/sections/mascotas.php">Mascotas</a>
-        <a class="nav-item nav-link" href="<?php echo $url;?>/admin/sections/cerrar.php">Cerrar</a>
-        <a class="nav-item nav-link" href="<?php echo $url; ?>">Sitio</a>
-    </div>
-</nav> -->
 
-<div class="container">
-    <div class="row">
+
+<div class="">
+    <div class="">
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
