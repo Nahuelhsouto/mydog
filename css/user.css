@@ -1,0 +1,49 @@
+.user-container {
+  display: flex;
+  justify-content: center;
+}
+
+.user-sec {
+  width: 50em;
+  height: 37.1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 32em;
+  width: 23em;
+  border-radius: 2em;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 120px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+.card-user img {
+  width: 7em;
+  height: 7em;
+  border: solid;
+  border-radius: 2em;
+}
+
+.inputs {
+  margin-top: 2em;
+  width: 18em;
+  height: 3em;
+  border-radius: 3em;
+  border: solid;
+  border-color: darkgrey;
+}
+.save {
+  margin-top: 2em;
+  width: 4em;
+  height: 3em;
+  border-radius: 3em;
+  border: solid;
+  border-color: darkgrey;
+}
