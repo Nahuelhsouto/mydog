@@ -83,7 +83,7 @@ if($_POST){
                 <?php echo $mensaje ?>
             </div>
            <?php }  ?>
-<form method="POST">
+<form method="post">
 <div class = "form-group">
 <label for="exampleInputEmail1">Usuario</label>
 <input type="text" class="form-control" name='usuario' aria-describedby="emailHelp" placeholder="Ingresa tu usuario">
