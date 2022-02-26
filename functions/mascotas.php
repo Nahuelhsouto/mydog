@@ -16,7 +16,7 @@ foreach($dogList as $dog) {
         <div class='cards-text'>
             <h4 class='card-title'>" .$dog['nombre']."</h4>
             <p class='card-text'>Text</p>
-            <a name='' id='' class='btn btn-warning' href='#' role='button'>Información</a>
+            <a name='' id='' class='btn btn-warning' href='#' role='button'>Contactar</a>
         </div>
     </div>
 ";

@@ -27,6 +27,7 @@ session_start();
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/images.css">
     <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/user.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -72,7 +73,7 @@ session_start();
 								<span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-user fa-fw"></i></span>
 								</a>
 					<ul class="dropdown-menu rounded shadow menu-animate slideIn" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item has-icon" href="<?php echo $url;?>/admin/mascotas.php"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-user fa-fw"></i></span>Mi perfil</a></li>
+									<li><a class="dropdown-item has-icon" href="<?php echo $url;?>/admin/user.php"><span style="color:tomato;" class="theme-icon-holder me-2"><i class="fas fa-user fa-fw"></i></span>Mi perfil</a></li>
 								  
 									<li><div class="dropdown-divider m-0"></div></li>
 									

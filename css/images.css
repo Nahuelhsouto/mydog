@@ -1,10 +1,10 @@
 .img-dog {
   border-radius: 10em;
-  width: 13em;
-  height: 13em;
+  width: 8em;
+  height: 8em;
   border-style: solid;
-  border: 50em;
-  color: black;
+  border: 1em;
+  border-color: black;
 }
 
 .cards-paws {
@@ -19,8 +19,8 @@
   border-style: solid;
   border-radius: 2em;
   background-color: antiquewhite;
-  width: 17em;
-  height: 25em;
+  width: 13em;
+  height: 18em;
 }
 .cards-paws-design {
   display: flex;
@@ -72,7 +72,6 @@
 .cards-paws:hover {
   transition: ease 0.2s;
   opacity: 0.8;
-  width: 20em;
-  height: 27em;
+  width: 15em;
+  height: 20em;
 }
-
