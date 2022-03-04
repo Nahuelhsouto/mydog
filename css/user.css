@@ -119,3 +119,28 @@ form span {
   transition: 0.5s;
   opacity: 0.6;
 }
+
+.sec2 {
+  background-color: red;
+  width: 20em;
+  max-height: 35em;
+  overflow-y: auto;
+  border-radius: 1em;
+}
+.sec2::-webkit-scrollbar {
+  width: 0px;
+}
+
+.sec1 {
+  width: 50%;
+  height: 40em;
+  background-color: #c39f77;
+  display: flex;
+  justify-content: center;
+}
+
+.lost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

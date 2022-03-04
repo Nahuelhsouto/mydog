@@ -145,14 +145,13 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <div class="page">
-<div class="col-md-5">
-<br/><br/><br/>
-<div class="card">
-    <div class="card-header">
-        Mis mascotas
-    </div>
 
-    <div class="card-body">
+
+
+<div class="card">
+    
+
+   
     <form method="POST" enctype="multipart/form-data">
 
 <div class = "form-group">
@@ -175,24 +174,24 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 <div class="form-group">
 <label for="txtPlace">¿Cuando se perdio?</label>
 <input type="date" class="form-control"  name="dateLost" id="dateLost">
-</div>
-<div class="form-group">
+
+
 <label for="txtPlace">¿Donde lo viste por última vez?</label>
 <input type="text" class="form-control" value="<?php echo $txtPlace;?>" name="txtPlace" id="txtPlace" placeholder="Lo vi por última vez...">
-</div>
 
-<div class="form-group">
+
+
 <label for="txtContact">Contacto</label>
 <input type="text" class="form-control" value="<?php echo $txtContact;?>" name="txtContact" id="txtContact" placeholder="Contacto">
-</div>
 
-<div class="form-group">
+
+
 <label for="txtDescrip">Descripción</label>
 <input type="text" class="form-control" value="<?php echo $txtDescrip;?>" name="txtDescrip" id="txtDescrip" placeholder="Mencionar caracteristicas distintiva, edad, si responde a algún nombre en particular, etc...">
-</div>
 
 
-<div class="form-group">
+
+
 <label for="txtFoto">Foto</label>
 
 
@@ -206,9 +205,9 @@ if($txtFoto!=""){
 <?php }?>
 
 <input type="file" class="form-control" name="txtFoto" id="txtFoto">
-</div>
 
-<div class="btn-group" role="group" aria-label="">
+
+<div role="group" aria-label="">
     <button type="submit" name="accion"  value="Agregar" class="btn btn-primary">Agregar</button>
          <!-- <button type="submit" name="accion"  value="Modificar" class="btn btn-warning">Modificar</button> -->
     <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
@@ -218,15 +217,15 @@ if($txtFoto!=""){
 </div>
 </div>
 </div>
-</div>
 
 
 
-
+<div class="sec1">
 <div class="sec2">
 
 
-
+</div>
+</div>
 </div>
 
 <script src="../javascript/perdidos.js"> </script>
