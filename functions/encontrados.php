@@ -12,7 +12,7 @@ if (!isset($_SESSION['usuario'])){
 
 include('../admin/config/db.php');
 
-$qsql=$connection->prepare( "SELECT * FROM mascotas WHERE id_usuario=:id AND estado=1");
+$qsql=$connection->prepare( "SELECT * FROM mascotas WHERE id_usuario=:id AND estado = 2");
 $qsql->bindParam(':id',$idUsers);
 $qsql->execute();
 $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);

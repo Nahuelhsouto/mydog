@@ -24,6 +24,7 @@
 }
 .cards-paws-design {
   display: flex;
+  margin-bottom: 2em;
   margin-top: 2em;
   flex-direction: column;
   align-items: center;
@@ -39,6 +40,8 @@
 .cards-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
   align-items: center;
 }
 
@@ -86,4 +89,70 @@
 
 .card label {
   text-align: center;
+}
+
+.formix {
+  width: 47em;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 120px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  border-radius: 5em;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.b-but {
+  display: flex;
+}
+
+.inputs-des {
+  transition: 0.5s;
+  opacity: 1;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  width: 30em;
+  height: 5em;
+  border-radius: 3em;
+  border: solid;
+  border-color: darkgrey;
+  text-align: center;
+}
+
+.inputs-des:hover {
+  transition: 0.5s;
+  opacity: 0.6;
+}
+
+.inputs-archi {
+  transition: 0.5s;
+  opacity: 1;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  width: 30em;
+  height: 5em;
+  border-radius: 3em;
+  border: solid;
+  border-color: darkgrey;
+  text-align: justify;
+  display: none;
+}
+
+.inputs-archi:hover {
+  transition: 0.5s;
+  opacity: 0.6;
+}
+.label-img {
+  opacity: 1;
+  transition: 0.2s;
+  background-image: url("../pictures/foto.jpg");
+  background-size: cover;
+  width: 5em;
+  height: 6em;
+  border-radius: 2em;
+}
+.label-img:hover {
+  opacity: 0.7;
 }
