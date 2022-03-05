@@ -18,7 +18,7 @@ include('config/db.php');
 switch($accion){
 case "Agregar":
 
-      $qsql= $connection->prepare( "INSERT INTO mascotas (tipo_masc,nombre,foto,contacto,fecha_reg,lugar,descrip,estado,id_usuario) VALUES(:tipo_masc,:nombre,:foto,:contacto,:fecha_reg,:lugar,:descrip,1,:id);" );
+      $qsql= $connection->prepare( "INSERT INTO mascotas (tipo_masc,nombre,foto,contacto,fecha_reg,lugar,descrip,estado,id_usuario) VALUES(:tipo_masc,:nombre,:foto,:contacto,:fecha_reg,:lugar,:descrip,2,:id);" );
       $qsql->bindParam(':nombre',$txtNombre);
       $qsql->bindParam(':contacto',$txtContact);
       $qsql->bindParam(':lugar',$txtPlace);
@@ -161,9 +161,9 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
         <option value="1">Gato</option>
         <option value="2">Perro</option>
      </select>
-     <label for="txtPlace">¿Cuando se perdio?</label>
+     <label for="txtPlace">¿Cuando lo encontraste?</label>
     <input type="date" class="inputs" name="dateLost" id="dateLost" >
-    <label for="txtPlace">¿Donde lo viste por última vez?</label>
+    <label for="txtPlace">¿Donde lo encontraste?</label>
     <input type="text" class="inputs" value="<?php echo $txtPlace;?>" name="txtPlace" id="txtPlace">
     <label for="txtContact">Contacto</label>
     <input type="text" class="inputs" value="<?php echo $txtContact;?>" name="txtContact" id="txtContact" placeholder="Contacto">
@@ -198,5 +198,5 @@ if($txtFoto!=""){
 </div>
 </div>
 
-<script src="../javascript/perdidos.js"> </script>
+<script src="../javascript/encontrados.js"> </script>
 <?php include('template/footer.php')?>

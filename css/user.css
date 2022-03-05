@@ -30,7 +30,8 @@
 .inputs {
   transition: 0.5s;
   opacity: 1;
-  margin-top: 0.5em;
+  margin-top: 0.1em;
+  margin-bottom: 0.5em;
   width: 18em;
   height: 3em;
   border-radius: 3em;
@@ -121,7 +122,11 @@ form span {
 }
 
 .sec2 {
-  background-color: red;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(233, 180, 188, 0.46);
+  box-shadow: 0 0 120px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
   width: 20em;
   max-height: 35em;
   overflow-y: auto;
@@ -132,11 +137,12 @@ form span {
 }
 
 .sec1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   height: 40em;
-  background-color: #c39f77;
-  display: flex;
-  justify-content: center;
 }
 
 .lost {
