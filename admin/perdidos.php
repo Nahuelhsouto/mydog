@@ -153,7 +153,7 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
    
     <form method="POST" enctype="multipart/form-data">
 
-<div class="formix">
+<div class="formi">
 <label for="txtNombre">Nombre</label>
     <input type="text" class="inputs" value="<?php echo $txtNombre;?>" name="txtNombre" id="txtNombre" placeholder="Nombre">
 <label for="txtNombre">Tipo</label>   
