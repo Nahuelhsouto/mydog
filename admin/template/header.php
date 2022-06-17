@@ -28,6 +28,11 @@ session_start();
     <link rel="stylesheet" href="../css/images.css">
     <link rel="stylesheet" href="../css/chat.css">
     <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/cs-select.css">
+    <link rel="stylesheet" href="../css/cs-skin-circular.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>

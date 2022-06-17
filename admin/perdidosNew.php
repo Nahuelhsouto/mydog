@@ -151,24 +151,71 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
 
    
     <form method="POST" enctype="multipart/form-data">
+        
+        <div class="formi">
 
-<div class="formi">
+        <!--- Tipo de mascota -->
+        <div class="">
+        <section>
+				<select class="cs-select cs-skin-circular">
+					<option value="" disabled selected>Select an activity</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				
+				</select>
+			</section>
+        </div>
+
+<!--  Old version
+
+        <label for="typeAni">Tipo</label>   
+            <select class="inputs" id="typeAni" name="typeAni">
+                <option value="1">Gato</option>
+                <option value="2">Perro</option>
+             </select>
+        </div>
+-->
+<!--- El nombre de las mascota perdida -->
+    <div class="form-dis">
 <label for="txtNombre">Nombre</label>
     <input type="text" class="inputs" value="<?php echo $txtNombre;?>" name="txtNombre" id="txtNombre" placeholder="Nombre">
-<label for="txtNombre">Tipo</label>   
-    <select class="inputs" id="typeAni" name="typeAni">
-        <option value="1">Gato</option>
-        <option value="2">Perro</option>
-     </select>
-     <label for="txtPlace">¿Cuando se perdio?</label>
-    <input type="date" class="inputs" name="dateLost" id="dateLost" >
-    <label for="txtPlace">¿Donde lo viste por última vez?</label>
-    <input type="text" class="inputs" value="<?php echo $txtPlace;?>" name="txtPlace" id="txtPlace">
-    <label for="txtContact">Contacto</label>
-    <input type="text" class="inputs" value="<?php echo $txtContact;?>" name="txtContact" id="txtContact" placeholder="Contacto">
-    <label for="txtDescrip">Descripción</label>
+    </div>
+
+<!--- Indicar fecha-->
+
+<div class="form-dis">
+
+<label for="txtPlace">¿Cuando se perdio?</label>
+<input type="date" class="inputs" name="dateLost" id="dateLost" >
+
+</div>
+  
+<!--- Indicar ubicación, posible integración con gmaps y marks -->
+
+<div class="form-dis">
+
+<label for="txtPlace">¿Donde lo viste por última vez?</label>
+<input type="text" class="inputs" value="<?php echo $txtPlace;?>" name="txtPlace" id="txtPlace">
+</div>
+
+<!--- Datos de contacto -->
+<div class="form-dis">
+
+<label for="txtContact">Contacto</label>
+<input type="text" class="inputs" value="<?php echo $txtContact;?>" name="txtContact" id="txtContact" placeholder="Contacto">
+   
+</div>
+
+<!--- Descripción -->
+<div class="form-dis">
+   
+<label for="txtDescrip">Descripción</label>
 <input type="text" class="inputs-des" value="<?php echo $txtDescrip;?>" name="txtDescrip" id="txtDescrip" placeholder="Mencionar caracteristicas distintivas">
 
+</div>
+
+<div class="form-dis">
 <label class="label-img" for="txtFoto"></label>
 
 <?php
@@ -185,6 +232,7 @@ if($txtFoto!=""){
     <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
 </div>
 </div>
+</div>
     </form>
 
 
@@ -196,6 +244,24 @@ if($txtFoto!=""){
 </div>
 </div>
 </div>
+<script src="../javascript/classie.js"> </script>
+<script src="../javascript/selectFx.js"> </script>
 
+<script>
+			(function() {
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+					new SelectFx(el, {
+						stickyPlaceholder: false,
+						onChange: function(val){
+							var img = document.createElement('img');
+							img.src = 'img/'+val+'.png';
+							img.onload = function() {
+								document.querySelector('span.cs-placeholder').style.backgroundImage = 'url(img/'+val+'.png)';
+							};
+						}
+					});
+				} );
+			})();
+</script>
 <script src="../javascript/perdidos.js"> </script>
 <?php include('template/footer.php')?>
