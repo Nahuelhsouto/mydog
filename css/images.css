@@ -47,9 +47,10 @@
 
 .page {
   display: flex;
-  flex-direction: row;
-  margin-top: 1em;
-  justify-content: space-between;
+  margin-top: 7em;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 .sec2 {
@@ -98,6 +99,15 @@
     0 32px 64px -48px rgba(0, 0, 0, 0.5);
   border-radius: 5em;
   height: 40em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formiNew {
+  width: 70rem;
+  border-radius: 5em;
+  height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -152,7 +152,7 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
    
     <form method="POST" enctype="multipart/form-data">
         
-        <div class="formi">
+        <div class="formiNew">
 
         <!--- Tipo de mascota -->
         <div class="">
@@ -235,14 +235,16 @@ if($txtFoto!=""){
 </div>
     </form>
 
-
+<!-- Visualización de mascotas cargadas 
 
 <div class="sec1">
 <div class="sec2">
 
+-->
 
 </div>
 </div>
+
 </div>
 <script src="../javascript/classie.js"> </script>
 <script src="../javascript/selectFx.js"> </script>
