@@ -105,9 +105,9 @@
   align-items: center;
 }
 .formiNew {
-  width: 70rem;
+  width: 65rem;
   border-radius: 5em;
-  height: 25rem;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
