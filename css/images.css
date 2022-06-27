@@ -105,6 +105,7 @@
   align-items: center;
 }
 .formiNew {
+  transition: ease-out 2s;
   width: 65rem;
   border-radius: 5em;
   height: 20rem;
@@ -112,6 +113,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation-name: formiNewChange;
+  animation-duration: 4s;
 }
 
 .b-but {
@@ -165,4 +168,13 @@
 }
 .label-img:hover {
   opacity: 0.7;
+}
+
+@keyframes formiNewChange {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
