@@ -98,6 +98,7 @@ div.cs-skin-circular {
   opacity: 0;
   cursor: pointer;
   pointer-events: auto;
+  background-image: url("img/paw.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
