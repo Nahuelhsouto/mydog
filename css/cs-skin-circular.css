@@ -19,10 +19,12 @@ div.cs-skin-circular {
 }
 
 .cs-skin-circular > span {
-  background: transparent;
+  background-image: url("../img/paw.png");
   width: 100px;
   height: 100px;
   text-align: center;
+  background-size: cover;
+  background-position: center;
   padding: 0;
   text-indent: 100%;
   box-shadow: inset 0 0 0 5px #040402;
@@ -98,7 +100,6 @@ div.cs-skin-circular {
   opacity: 0;
   cursor: pointer;
   pointer-events: auto;
-  background-image: url("img/paw.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
@@ -135,7 +136,7 @@ div.cs-skin-circular {
   transform: translate3d(113.14px, -113.14px, 0);
 }
 
-.cs-skin-circular.cs-active .cs-options li:nth-child(3) {
+.cs-skin-circular.cs-active .cs-options li:nth-child(8) {
   -webkit-transform: translate3d(160px, 0, 0);
   transform: translate3d(160px, 0, 0);
 }
@@ -160,7 +161,7 @@ div.cs-skin-circular {
   transform: translate3d(-160px, 0, 0);
 }
 
-.cs-skin-circular.cs-active .cs-options li:nth-child(8) {
+.cs-skin-circular.cs-active .cs-options li:nth-child(3) {
   -webkit-transform: translate3d(-113.14px, -113.14px, 0);
   transform: translate3d(-113.14px, -113.14px, 0);
 }
