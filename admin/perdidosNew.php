@@ -155,7 +155,7 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
         <div class="formiNew">
 
         <!--- Tipo de mascota -->
-        <div class="">
+        <div class="formiDog">
         <section>
 				<select class="cs-select cs-skin-circular">
 					<option value="" disabled selected>Select an activity</option>

@@ -114,7 +114,7 @@
   justify-content: center;
   align-items: center;
   animation-name: formiNewChange;
-  animation-duration: 4s;
+  animation-duration: 2s;
 }
 
 .b-but {
@@ -170,11 +170,29 @@
   opacity: 0.7;
 }
 
+.formiDog::before {
+  content: "Test";
+  margin-bottom: 5em;
+}
 @keyframes formiNewChange {
   0% {
     opacity: 0;
+    margin-left: 90em;
+
+    transform: rotate(10deg);
+  }
+  50% {
+    margin-left: 10em;
+    transform: rotate(720deg);
+  }
+  80% {
+    margin-left: 1em;
   }
   100% {
     opacity: 1;
   }
+}
+
+body {
+  overflow: hidden;
 }
