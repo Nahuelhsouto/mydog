@@ -174,3 +174,36 @@ div.cs-skin-circular {
   background-color: transparent;
   opacity: 0.7;
 }
+
+.cs-skin-circular .cs-options li:first-child:hover::before {
+  animation: li 3s ease infinite;
+  margin-left: 2em;
+  content: "Cat";
+  color: red;
+}
+.cs-skin-circular .cs-options li:nth-child(2):hover::before {
+  animation: li 3s ease infinite;
+  margin-left: 2em;
+  margin-bottom: 3em;
+  content: "Dog";
+}
+.cs-skin-circular .cs-options li:nth-child(3):hover::before {
+  animation: li 3s ease infinite;
+  margin-left: 1.6em;
+  margin-bottom: 3em;
+  content: "Others";
+  color: green;
+}
+
+@keyframes li {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
