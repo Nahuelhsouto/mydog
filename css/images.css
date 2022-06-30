@@ -171,8 +171,9 @@
 }
 
 .formiDog::before {
-  content: "Test";
-  margin-bottom: 5em;
+  content: "¿Que tipo de mascota se te perdio?";
+  margin-right: 40em;
+  size: 4em;
 }
 @keyframes formiNewChange {
   0% {
