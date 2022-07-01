@@ -31,6 +31,20 @@ div.cs-skin-circular {
   border-radius: 50%;
   -webkit-transition: -webkit-transform 0.2s ease-out;
   transition: transform 0.2s ease-out;
+  animation: pawAni ease 2s;
+}
+
+@keyframes pawAni {
+  0% {
+  }
+  80% {
+    height: 80px;
+    width: 80px;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @media screen and (max-width: 30em) {
@@ -177,21 +191,21 @@ div.cs-skin-circular {
 
 .cs-skin-circular .cs-options li:first-child:hover::before {
   animation: li 3s ease infinite;
-  margin-left: 2em;
-  content: "Cat";
+  margin-left: 1.7em;
+  content: "Gato";
   color: red;
 }
 .cs-skin-circular .cs-options li:nth-child(2):hover::before {
   animation: li 3s ease infinite;
-  margin-left: 2em;
+  margin-left: 1.75em;
   margin-bottom: 3em;
-  content: "Dog";
+  content: "Perro";
 }
 .cs-skin-circular .cs-options li:nth-child(3):hover::before {
   animation: li 3s ease infinite;
   margin-left: 1.6em;
   margin-bottom: 3em;
-  content: "Others";
+  content: "Otros";
   color: green;
 }
 

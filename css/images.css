@@ -115,6 +115,7 @@
   align-items: center;
   animation-name: formiNewChange;
   animation-duration: 2s;
+  margin-top: 3rem;
 }
 
 .b-but {
@@ -170,11 +171,12 @@
   opacity: 0.7;
 }
 
-.formiDog::before {
-  content: "¿Que tipo de mascota se te perdio?";
-  margin-right: 40em;
-  size: 4em;
+.formiDog::after {
+  content: "¿Qué animal es tu mascota?";
+  animation: title1 ease 5s;
+  font-size: 2rem;
 }
+
 @keyframes formiNewChange {
   0% {
     opacity: 0;
@@ -188,6 +190,17 @@
   }
   80% {
     margin-left: 1em;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes title1 {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
   }
   100% {
     opacity: 1;

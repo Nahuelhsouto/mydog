@@ -157,7 +157,7 @@ $doglist=$qsql->fetchAll(PDO::FETCH_ASSOC);
         <!--- Tipo de mascota -->
         <div class="formiDog">
         <section>
-				<select class="cs-select cs-skin-circular">
+				<select id="typeAni" name="typeAni" class="cs-select cs-skin-circular" onchange="valorSelect(this.value);">
 					<option value="" disabled selected>Select an activity</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -264,6 +264,8 @@ if($txtFoto!=""){
 					});
 				} );
 			})();
+
 </script>
 <script src="../javascript/perdidos.js"> </script>
+<script src="../javascript/forms.js"> </script>
 <?php include('template/footer.php')?>
