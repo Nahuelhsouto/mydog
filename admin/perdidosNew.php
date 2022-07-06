@@ -260,7 +260,14 @@ if($txtFoto!=""){
 								document.querySelector('span.cs-placeholder').style.backgroundImage = 'url(img/'+val+'.png)';
 							};
                             if (val>0){
-                                alert('Seleccionaste un ' + val);
+                                const div = document.createElement("div");
+div.textContent = "Esto es un div insertado con JS.";
+
+const app = document.createElement("div"); // <div></div>
+const formi = document.querySelector('.formiDog')
+app.className = "next";       // <div id="app"></div>
+app.appendChild(div);
+formi.appendChild(app);
                             }
                             else{
                                 alert ('No seleccionaste nada');
